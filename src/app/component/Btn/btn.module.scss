@@ -1,5 +1,10 @@
+@use '../../CssUtils/color.scss';
+
+
 .mainContainer {
-    border: 6px solid black;
-    box-shadow: 4px 4px black;
+    color: color.$yellowSecondary;
+    background: color.$yellowPrimary;
+    border: 6px solid color.$yellowSecondary;
+    box-shadow: 4px 4px color.$yellowSecondary;
     transform: translateY(-4px);
 }
