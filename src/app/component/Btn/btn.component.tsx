@@ -9,6 +9,6 @@ type PropsType = {
 
 export default function Btn(props: PropsType): JSX.Element {
     return (
-        <div className={`${styles.mainContainer} p-3 `}>{props.children}</div>
+        <div className={`${styles.mainContainer} p-3 bg-yellow-500 `}>{props.children}</div>
     );
 }
