@@ -1,4 +1,5 @@
 import './globals.css';
+import MainMenu from './component/MainMenu/main-menu.component';
 
 export default async function Home(): Promise<JSX.Element> {
 
@@ -7,6 +8,8 @@ export default async function Home(): Promise<JSX.Element> {
   const json = await response.json();
 
   return (
-      <div> </div>
+      <div>
+          <MainMenu apiData={json.results} />
+      </div>
   )
 }
