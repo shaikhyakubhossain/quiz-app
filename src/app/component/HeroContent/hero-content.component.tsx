@@ -19,8 +19,8 @@ type propsType = {
 export default function HeroContent(props: propsType): JSX.Element {
     return (
         <div className={`${styles.mainContainer}`}>
-            <StatusBar />
-            <Question />
+            <StatusBar maxQuestions={props.apiData.length} />
+            <Question question={props.apiData[0].question} />
         </div>
     )
 }

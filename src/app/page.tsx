@@ -11,7 +11,7 @@ export default async function Home(): Promise<JSX.Element> {
   return (
       <div className=' bg-orange-100'>
         <Nav />
-        <HeroContent apiData={json.result} />
+        <HeroContent apiData={json.results} />
       </div>
   )
 }
