@@ -1,4 +1,4 @@
-import styles from './option.module.scss';
+import styles from './options.module.scss';
 
 
 
