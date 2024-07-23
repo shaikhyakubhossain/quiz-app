@@ -1,6 +1,4 @@
 import './globals.css';
-import Nav from './component/Nav/nav.component';
-import HeroContent from './component/HeroContent/hero-content.component';
 
 export default async function Home(): Promise<JSX.Element> {
 
@@ -9,9 +7,6 @@ export default async function Home(): Promise<JSX.Element> {
   const json = await response.json();
 
   return (
-      <div className=' bg-orange-100'>
-        <Nav />
-        <HeroContent apiData={json.results} />
-      </div>
+      <div> </div>
   )
 }
