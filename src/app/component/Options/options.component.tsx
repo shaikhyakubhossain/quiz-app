@@ -46,7 +46,7 @@ export default function Options(props: propsType): JSX.Element {
 
     const nextQuestion = () => {
         // router.push('/');
-        router.push('/' + (props.maxQuestions >= (props.QuestionNo + 2) ? 'Question/' + (props.QuestionNo + 2) : ''));
+        router.push('/' + (props.maxQuestions >= (props.QuestionNo + 2) ? 'Question/' + (props.QuestionNo + 2) : 'Result'));
     }
 
 
