@@ -10,7 +10,7 @@ export default function MainMenu(props: propsType): JSX.Element {
 
     return (
         <div className={`${styles.mainContainer} text-center mt-12`}>
-            <Link href={'/Question'}><Btn >Start Quiz</Btn></Link>
+            <Link href={'/Question/1'}><Btn >Start Quiz</Btn></Link>
         </div>
     )
 }
