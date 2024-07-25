@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './options.module.scss';
 import { shuffleOptions } from '../../constants/Utils/methods';
 import Btn from '../Btn/btn.component';
@@ -19,6 +19,9 @@ type propsType = {
 export default function Options(props: propsType): JSX.Element {
 
     const [options, setOptions] = useState<string[] | null>(null);
+
+    const optionsContainerRef = useRef<HTMLDivElement>(null);
+
     const correctColor = "rgb(64, 255, 96)";
     const incorrectColor = "rgb(255, 64, 64)";
 
@@ -33,14 +36,33 @@ export default function Options(props: propsType): JSX.Element {
 
     const checkAnswer = (event: React.MouseEvent<HTMLSpanElement>) => {
         const target = event.target as HTMLSpanElement;
-        const initialColor = target.style.backgroundColor;
+        let correctAnswerSpan = null;
+        // const initialColor = target.style.backgroundColor;
 
-        target.textContent === props.correct_answer ? target.style.backgroundColor = correctColor : target.style.backgroundColor = incorrectColor;
+        if(options && optionsContainerRef.current){
+            for(let i = 0; i < options.length; i++) {
+
+                if(optionsContainerRef.current.childNodes[i].textContent === props.correct_answer){
+                    
+                    correctAnswerSpan = optionsContainerRef.current.childNodes[i] as HTMLSpanElement
+                    break;
+                }
+            }
+            if(target.textContent === props.correct_answer){
+                target.style.backgroundColor = correctColor
+            }
+            else if(correctAnswerSpan){
+                target.style.backgroundColor = incorrectColor;
+                correctAnswerSpan.style.backgroundColor = correctColor;
+            }
+
+        }
+
         
         setTimeout(() => {
-            target.style.backgroundColor = initialColor;
+            // target.style.backgroundColor = initialColor;
             nextQuestion();
-        }, 1000);
+        }, 1500);
 
     }
 
@@ -52,7 +74,7 @@ export default function Options(props: propsType): JSX.Element {
 
     return (
         <div className={`${styles.mainContainer} mt-10`}>
-            <div className={`${styles.optionsContainer} flex flex-wrap justify-center`}>
+            <div className={`${styles.optionsContainer} flex flex-wrap justify-center`} ref={optionsContainerRef}>
                 {
                     options && shuffleOptions(options).map((item, index): JSX.Element => {
                         return (
