@@ -22,7 +22,7 @@ export default function HeroContent(props: propsType): JSX.Element {
         <div className={`${styles.mainContainer}`}>
             <StatusBar maxQuestions={props.apiData.length} />
             <Question question={props.apiData[props.QuestionNo].question} />
-            <Options correct_answer={props.apiData[props.QuestionNo].correct_answer} incorrect_answers={props.apiData[props.QuestionNo].incorrect_answers} />
+            <Options correct_answer={props.apiData[props.QuestionNo].correct_answer} incorrect_answers={props.apiData[props.QuestionNo].incorrect_answers} QuestionNo={props.QuestionNo} maxQuestions={props.apiData.length}/>
         </div>
     )
 }
