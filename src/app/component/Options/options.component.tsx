@@ -57,7 +57,7 @@ export default function Options(props: propsType): JSX.Element {
                     options && shuffleOptions(options).map((item, index): JSX.Element => {
                         return (
                             <>
-                                <Btn key={index} onClick={checkAnswer} children={item} />
+                                <Btn key={index} onClick={checkAnswer}>{item}</Btn>
                             </>
                         )
                     })
