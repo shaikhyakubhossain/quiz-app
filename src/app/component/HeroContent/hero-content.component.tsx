@@ -13,15 +13,16 @@ type apiDataType = {
   }
 
 type propsType = {
-    apiData: apiDataType[]
+    apiData: apiDataType[],
+    QuestionNo: number
 }
 
 export default function HeroContent(props: propsType): JSX.Element {
     return (
         <div className={`${styles.mainContainer}`}>
             <StatusBar maxQuestions={props.apiData.length} />
-            <Question question={props.apiData[0].question} />
-            <Options correct_answer={props.apiData[0].correct_answer} incorrect_answers={props.apiData[0].incorrect_answers} />
+            <Question question={props.apiData[props.QuestionNo].question} />
+            <Options correct_answer={props.apiData[props.QuestionNo].correct_answer} incorrect_answers={props.apiData[props.QuestionNo].incorrect_answers} />
         </div>
     )
 }
