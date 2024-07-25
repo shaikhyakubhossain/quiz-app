@@ -28,7 +28,7 @@ export default function Options(props: propsType): JSX.Element {
 
     useEffect(() => {
         setOptions([...props.incorrect_answers, props.correct_answer]);
-    },[]);
+    },[props.incorrect_answers, props.correct_answer]);
 
 
     const checkAnswer = (event: React.MouseEvent<HTMLSpanElement>) => {
