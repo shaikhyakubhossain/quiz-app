@@ -1,10 +1,12 @@
 "use client"
 import { configureStore } from '@reduxjs/toolkit';
 import { mainTimerSlice } from './features/mainTimer/mainTimerSlice';
+import { pointsCounterSlice } from './features/pointsCounter/pointsCounterSlice';
 
 export const store = configureStore({
     reducer: {
-        mainTimer: mainTimerSlice.reducer
+        mainTimer: mainTimerSlice.reducer,
+        pointsCounter: pointsCounterSlice.reducer
     }
 })
 
