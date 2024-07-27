@@ -5,6 +5,8 @@ import { shuffleOptions } from '../../constants/Utils/methods';
 import Btn from '../Btn/btn.component';
 import { useRouter } from 'next/navigation';
 
+import { useDispatch } from 'react-redux';
+import { incrementPoints } from '../../../lib/features/pointsCounter/pointsCounterSlice';
 
 
 type propsType = {
@@ -20,6 +22,8 @@ export default function Options(props: propsType): JSX.Element {
     const [options, setOptions] = useState<string[] | null>(null);
 
     const optionsContainerRef = useRef<HTMLDivElement>(null);
+
+    const dispatch = useDispatch();
     
     const correctColor = "rgb(64, 255, 96)";
     const incorrectColor = "rgb(255, 64, 64)";
@@ -49,6 +53,7 @@ export default function Options(props: propsType): JSX.Element {
             }
             if(target.textContent === props.correct_answer){
                 target.style.backgroundColor = correctColor
+                dispatch(incrementPoints());
             }
             else if(correctAnswerSpan){
                 target.style.backgroundColor = incorrectColor;
@@ -66,6 +71,7 @@ export default function Options(props: propsType): JSX.Element {
     }
 
     const nextQuestion = () => {
+
 
         if(props.maxQuestions >= (props.QuestionNo + 2)){
             router.push('/Question/' + (props.QuestionNo + 2));

@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { RootState } from '../../../lib/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { resetTime } from '@/lib/features/mainTimer/mainTimerSlice';
+import { resetPoints } from '@/lib/features/pointsCounter/pointsCounterSlice';
 
 
 
@@ -18,6 +19,7 @@ type propsType = {
 export default function DisplayScore(props: propsType): JSX.Element {
 
     const time = useSelector((state: RootState) => state.mainTimer.time);
+    const score = useSelector((state: RootState) => state.pointsCounter.points);
     const dispatch = useDispatch();
 
     const router = useRouter();
@@ -25,6 +27,7 @@ export default function DisplayScore(props: propsType): JSX.Element {
     const handleRouteChangeOnBtnClick = (url: string) => {
 
         dispatch(resetTime());
+        dispatch(resetPoints());
         
         router.push(url);
 
@@ -33,6 +36,7 @@ export default function DisplayScore(props: propsType): JSX.Element {
     return (
         <div className={`${styles.mainContainer}`}>
             <MenuOptions>
+                <div className={`text-3xl`} >Your Score: {score}</div >
                 <div className={`text-3xl`} >Time Taken: {displayTime(time)}</div >
                 <div><Btn onClick={() => handleRouteChangeOnBtnClick('/Question/1')}>Try Again</Btn></div>
                 <div><Btn onClick={() => handleRouteChangeOnBtnClick('/')}>Home</Btn></div>
