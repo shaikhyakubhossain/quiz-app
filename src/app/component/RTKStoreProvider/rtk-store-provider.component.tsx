@@ -11,11 +11,21 @@ export default function RTKStoreProvider({
 }) {
 
   const persistor = persistStore(store)
+
+  const loading = () => {
+    return (
+      <div className='text-center text-3xl py-56'>
+        <div>Restoring session...</div>
+        <div>Please wait while we load your data...</div>
+        <div>persisted state is being rehydrated.</div>
+      </div>
+    )
+  }
   
 
   return (
   <Provider store={store}>
-    <PersistGate persistor={persistor}>
+    <PersistGate loading={loading()} persistor={persistor}>
     {children}
     </PersistGate>
   </Provider>
