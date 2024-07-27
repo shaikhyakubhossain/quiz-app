@@ -20,6 +20,7 @@ type propsType = {
 export default function Options(props: propsType): JSX.Element {
 
     const [options, setOptions] = useState<string[] | null>(null);
+    let shouldCheckAnswer: boolean = true;
 
     const optionsContainerRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +43,8 @@ export default function Options(props: propsType): JSX.Element {
         let correctAnswerSpan = null;
         // const initialColor = target.style.backgroundColor;
 
-        if(options && optionsContainerRef.current){
+        if(shouldCheckAnswer && options && optionsContainerRef.current){
+            shouldCheckAnswer = false;
             for(let i = 0; i < options.length; i++) {
 
                 if(optionsContainerRef.current.childNodes[i].textContent === props.correct_answer){
