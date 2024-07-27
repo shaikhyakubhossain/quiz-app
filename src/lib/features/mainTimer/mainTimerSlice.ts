@@ -2,7 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface initialStateInterface {
-    time: number;
+    time: number
 }
 
 const initialState: initialStateInterface = {
@@ -16,11 +16,11 @@ export const mainTimerSlice = createSlice({
         incrementTime: (state) => {
             state.time += 1
         },
-        setTime: (state, action) => {
-            state.time = action.payload
+        resetTime: (state) => {
+            state.time = 0;
         }
     }
 })
 
-export const { setTime, incrementTime } = mainTimerSlice.actions;
+export const { resetTime, incrementTime } = mainTimerSlice.actions;
 export default mainTimerSlice.reducer;
