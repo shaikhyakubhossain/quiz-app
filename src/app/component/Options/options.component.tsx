@@ -15,13 +15,12 @@ type propsType = {
 }
 
 
-
 export default function Options(props: propsType): JSX.Element {
 
     const [options, setOptions] = useState<string[] | null>(null);
 
     const optionsContainerRef = useRef<HTMLDivElement>(null);
-
+    
     const correctColor = "rgb(64, 255, 96)";
     const incorrectColor = "rgb(255, 64, 64)";
 
@@ -67,8 +66,16 @@ export default function Options(props: propsType): JSX.Element {
     }
 
     const nextQuestion = () => {
-        // router.push('/');
-        router.push('/' + (props.maxQuestions >= (props.QuestionNo + 2) ? 'Question/' + (props.QuestionNo + 2) : 'Result'));
+
+        if(props.maxQuestions >= (props.QuestionNo + 2)){
+            router.push('/Question/' + (props.QuestionNo + 2));
+        }
+
+        else{
+            
+            router.push('/Result');
+        }
+
     }
 
 
