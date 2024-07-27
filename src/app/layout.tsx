@@ -1,5 +1,6 @@
 import './globals.css';
 import Nav from './component/Nav/nav.component';
+import RTKStoreProvider from './component/RTKStoreProvider/rtk-store-provider.component';
 
 
 export const metadata = {
@@ -15,8 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='bg-orange-100'>
+        <RTKStoreProvider>
+        <>
         <Nav />
         {children}
+        </>
+        </RTKStoreProvider>
         </body>
     </html>
   )
