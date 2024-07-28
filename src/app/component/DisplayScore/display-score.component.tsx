@@ -1,14 +1,12 @@
 "use client";
 import styles from './display-score.module.scss';
-import Btn from "@/app/component/Btn/btn.component";
 import MenuOptions from "@/app/component/MenuOptions/menu-options.component";
 import { displayTime } from '@/app/constants/Utils/methods';
-import { useRouter } from 'next/navigation';
+import ResetStatesAndRouteChangeBtn from '../ResetStatesAndRouteChangeBtn/reset-states-and-route-change-btn.component';
+
 
 import { RootState } from '../../../lib/store';
-import { useSelector, useDispatch } from 'react-redux';
-import { resetTime } from '@/lib/features/mainTimer/mainTimerSlice';
-import { resetPoints } from '@/lib/features/pointsCounter/pointsCounterSlice';
+import { useSelector } from 'react-redux';
 
 
 
@@ -20,26 +18,14 @@ export default function DisplayScore(props: propsType): JSX.Element {
 
     const time = useSelector((state: RootState) => state.mainTimer.time);
     const score = useSelector((state: RootState) => state.pointsCounter.points);
-    const dispatch = useDispatch();
-
-    const router = useRouter();
-
-    const handleRouteChangeOnBtnClick = (url: string) => {
-
-        dispatch(resetTime());
-        dispatch(resetPoints());
-        
-        router.push(url);
-
-    }
 
     return (
         <div className={`${styles.mainContainer}`}>
             <MenuOptions>
                 <div className={`text-3xl`} >Your Score: {score}</div >
                 <div className={`text-3xl`} >Time Taken: {displayTime(time)}</div >
-                <div><Btn onClick={() => handleRouteChangeOnBtnClick('/Question/1')}>Try Again</Btn></div>
-                <div><Btn onClick={() => handleRouteChangeOnBtnClick('/')}>Home</Btn></div>
+                <div><ResetStatesAndRouteChangeBtn url={'/Question/1'}>Try Again</ResetStatesAndRouteChangeBtn></div>
+                <div><ResetStatesAndRouteChangeBtn url={'/'}>Home</ResetStatesAndRouteChangeBtn></div>
             </MenuOptions>
             
         </div>

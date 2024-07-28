@@ -1,16 +1,12 @@
 import styles from './main-menu.module.scss';
-import Btn from "../Btn/btn.component";
-import Link from 'next/link';
+import ResetStatesAndRouteChangeBtn from '../ResetStatesAndRouteChangeBtn/reset-states-and-route-change-btn.component';
 
-type propsType = {
 
-}
-
-export default function MainMenu(props: propsType): JSX.Element {
+export default function MainMenu(): JSX.Element {
 
     return (
         <div className={`${styles.mainContainer} text-center mt-12`}>
-            <Link href={'/Question/1'}><Btn >Start Quiz</Btn></Link>
+            <ResetStatesAndRouteChangeBtn url={"/Question/1"}>Start Quiz</ResetStatesAndRouteChangeBtn>
         </div>
     )
 }
