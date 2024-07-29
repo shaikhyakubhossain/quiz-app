@@ -41,10 +41,16 @@ export default function Options(props: propsType): JSX.Element {
     const checkAnswer = (event: React.MouseEvent<HTMLSpanElement>) => {
         const target = event.target as HTMLSpanElement;
         let correctAnswerSpan = null;
+        
+        
         // const initialColor = target.style.backgroundColor;
 
         if(shouldCheckAnswer && options && optionsContainerRef.current){
             shouldCheckAnswer = false;
+            for(let i = 0; i < options.length; i++) {
+                optionsContainerRef.current.children[i].classList.remove(optionsContainerRef.current.children[i].classList[1])
+            }
+
             for(let i = 0; i < options.length; i++) {
 
                 if(optionsContainerRef.current.childNodes[i].textContent === props.correct_answer){

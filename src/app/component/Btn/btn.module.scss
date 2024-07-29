@@ -7,4 +7,10 @@
     border: 6px solid color.$yellowSecondary;
     box-shadow: 4px 4px color.$yellowSecondary;
     transform: translateY(-4px);
+    cursor: pointer;
+}
+
+.whenActive:active {
+    color: color.$yellowPrimary;
+    background: color.$yellowSecondary;
 }
