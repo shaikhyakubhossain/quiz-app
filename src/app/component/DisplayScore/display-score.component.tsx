@@ -27,7 +27,7 @@ export default function DisplayScore(props: propsType): JSX.Element {
     return (
         <div className={`${styles.mainContainer}`}>
             <MenuOptions>
-                <div className={`text-3xl`} >Your Score: {score}/ {maxPoints} </div >
+                <div className={`text-3xl`} >Your Score: {score}/{maxPoints} </div >
                 <div className={`text-3xl`} >Time Taken: {displayTime(time)}</div >
                 <div><ResetStatesAndRouteChangeBtn url={'/Question/1?' + 'category=' + category + "&" + 'difficulty=' + difficulty}>Try Again</ResetStatesAndRouteChangeBtn></div>
                 <div><ResetStatesAndRouteChangeBtn url={'/'}>Home</ResetStatesAndRouteChangeBtn></div>

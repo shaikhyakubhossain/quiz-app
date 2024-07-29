@@ -10,10 +10,12 @@ import { resetPoints } from '../../../lib/features/pointsCounter/pointsCounterSl
 
 type propsType = {
     children: string
-    url: string
+    url: string,
+    customTW?: string,
+    customBgColor?: string
 }
 
-export default function StartBtn(props: propsType): JSX.Element {
+export default function ResetStatesAndRouteChangeBtn(props: propsType): JSX.Element {
 
     const router = useRouter();
     const dispatch = useDispatch();
@@ -29,7 +31,7 @@ export default function StartBtn(props: propsType): JSX.Element {
 
     return (
         <>
-            <Btn onClick={() => handleResetStatesAndRouteChangeOnBtnClick(props.url)} >{props.children}</Btn>
+            <Btn onClick={() => handleResetStatesAndRouteChangeOnBtnClick(props.url)} customTW={props.customTW} customBgColor={props.customBgColor} >{props.children}</Btn>
         </>
     )
 }
