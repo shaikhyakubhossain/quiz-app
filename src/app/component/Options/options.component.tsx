@@ -87,7 +87,7 @@ export default function Options(props: propsType): JSX.Element {
 
         else{
             
-            router.push('/Result?' + 'maxPoints=' + (props.maxQuestions * 10));
+            router.push('/Result' + window.location.search + "&" + 'maxPoints=' + (props.maxQuestions * 10));
         }
 
     }

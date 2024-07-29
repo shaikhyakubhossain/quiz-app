@@ -19,13 +19,17 @@ export default function DisplayScore(props: propsType): JSX.Element {
     const time = useSelector((state: RootState) => state.mainTimer.time);
     const score = useSelector((state: RootState) => state.pointsCounter.points);
     const maxPoints = useSearchParams().get('maxPoints');
+    const category = useSearchParams().get('category');
+    const difficulty = useSearchParams().get('difficulty');
+
+    console.log(useSearchParams(), maxPoints, category, difficulty);
 
     return (
         <div className={`${styles.mainContainer}`}>
             <MenuOptions>
                 <div className={`text-3xl`} >Your Score: {score}/ {maxPoints} </div >
                 <div className={`text-3xl`} >Time Taken: {displayTime(time)}</div >
-                <div><ResetStatesAndRouteChangeBtn url={'/Question/1'}>Try Again</ResetStatesAndRouteChangeBtn></div>
+                <div><ResetStatesAndRouteChangeBtn url={'/Question/1?' + 'category=' + category + "&" + 'difficulty=' + difficulty}>Try Again</ResetStatesAndRouteChangeBtn></div>
                 <div><ResetStatesAndRouteChangeBtn url={'/'}>Home</ResetStatesAndRouteChangeBtn></div>
             </MenuOptions>
             
