@@ -19,7 +19,9 @@ export default function RootLayout({
         <RTKStoreProvider>
         <>
         <Nav />
+        <div className='mt-24'>
         {children}
+        </div>
         </>
         </RTKStoreProvider>
         </body>

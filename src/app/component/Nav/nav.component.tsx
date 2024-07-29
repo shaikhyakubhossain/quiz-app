@@ -3,9 +3,9 @@ import ResetStatesAndRouteChangeBtn from '../ResetStatesAndRouteChangeBtn/reset-
 
 export default function Nav() {
     return (
-        <div className={`${styles.mainContainer} flex w-full h-28 border-b-4 border-black bg-white`}>
+        <div className={`${styles.mainContainer} fixed top-0 py-5 w-full h-20 border-b-4 border-black bg-white`}>
             <div className={`${styles.menuBtn}`}></div>
-            <ResetStatesAndRouteChangeBtn url={'/'} customBgColor='#FF58FA'>Home</ResetStatesAndRouteChangeBtn>
+            <ResetStatesAndRouteChangeBtn url={'/'} customBgColor='#FF58FA' customTW='text-xl mx-4'>Home</ResetStatesAndRouteChangeBtn>
         </div>
     );
 }

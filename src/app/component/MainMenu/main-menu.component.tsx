@@ -37,7 +37,7 @@ export default function MainMenu(): JSX.Element {
     }
 
     return (
-        <div className={`${styles.mainContainer} text-center mt-12`}>
+        <div className={`${styles.mainContainer} text-center`}>
             <QuestionSettings setCategory={setCategory} setDifficulty={setDifficulty} />
             <ResetStatesAndRouteChangeBtn customBgColor='#61FFDB' url={'/Question/1?' + startQuizQuery.category + '&' + startQuizQuery.difficulty}>Start Quiz</ResetStatesAndRouteChangeBtn>
         </div>
