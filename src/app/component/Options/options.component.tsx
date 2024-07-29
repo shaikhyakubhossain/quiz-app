@@ -76,7 +76,7 @@ export default function Options(props: propsType): JSX.Element {
 
 
         if(props.maxQuestions >= (props.QuestionNo + 2)){
-            router.push('/Question/' + (props.QuestionNo + 2));
+            router.push('/Question/' + (props.QuestionNo + 2) + window.location.search);
         }
 
         else{

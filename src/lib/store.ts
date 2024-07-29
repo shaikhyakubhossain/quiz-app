@@ -9,7 +9,8 @@ import { combineReducers } from '@reduxjs/toolkit';
 const persistConfig = {
     key: 'root',
     version: 1,
-    storage: storage
+    storage: storage,
+    timeout: 100
 }
 
 const reducer = combineReducers({
