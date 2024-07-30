@@ -48,7 +48,7 @@ export default function QuestionSettings(props: propsType): JSX.Element {
                 }
             </div>
             <div className={`text-3xl`}>Select Difficulty</div>
-            <div className={`${styles.difficultyContainer} flex justify-center overflow-hidden mx-auto mb-4`}>
+            <div className={`${styles.difficultyContainer} flex flex-wrap justify-center overflow-hidden mx-auto mb-4`}>
                     <div><Btn customTW="text-sm" onClick={(e) => {
                         props.setDifficulty('difficulty=easy')
                         handleBtnColorChangeOnClick(e, "difficulty")
