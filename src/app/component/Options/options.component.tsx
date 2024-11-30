@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 
 import { useDispatch } from 'react-redux';
 import { incrementPoints } from '../../../lib/features/pointsCounter/pointsCounterSlice';
+import { setLoadingFalse } from '@/lib/features/topLoading/topLoadingSlice';
 
 
 type propsType = {
@@ -35,6 +36,7 @@ export default function Options(props: propsType): JSX.Element {
 
     useEffect(() => {
         setOptions([...props.incorrect_answers, props.correct_answer]);
+        dispatch(setLoadingFalse());
     },[props.incorrect_answers, props.correct_answer]);
 
 

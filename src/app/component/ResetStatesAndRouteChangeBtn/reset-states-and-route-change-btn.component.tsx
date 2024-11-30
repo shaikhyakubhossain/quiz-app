@@ -1,11 +1,11 @@
 "use client";
-import styles from './start-btn.module.scss';
 import Btn from '../Btn/btn.component';
 import { useRouter } from 'next/navigation';
 
 import { useDispatch } from 'react-redux';
 import { resetTime } from '../../../lib/features/mainTimer/mainTimerSlice';
 import { resetPoints } from '../../../lib/features/pointsCounter/pointsCounterSlice';
+import { setLoadingTrue } from '@/lib/features/topLoading/topLoadingSlice';
 
 
 type propsType = {
@@ -22,16 +22,16 @@ export default function ResetStatesAndRouteChangeBtn(props: propsType): JSX.Elem
 
     const handleResetStatesAndRouteChangeOnBtnClick = (url: string) => {
 
+        dispatch(setLoadingTrue());
         dispatch(resetTime());
         dispatch(resetPoints());
-        
         router.push(url);
 
     }
 
     return (
         <>
-            <Btn onClick={() => handleResetStatesAndRouteChangeOnBtnClick(props.url)} customTW={props.customTW} customBgColor={props.customBgColor} >{props.children}</Btn>
+            <Btn onClick={() => props.url !== window.location.pathname && handleResetStatesAndRouteChangeOnBtnClick(props.url)} customTW={props.customTW} customBgColor={props.customBgColor} >{props.children}</Btn>
         </>
     )
 }

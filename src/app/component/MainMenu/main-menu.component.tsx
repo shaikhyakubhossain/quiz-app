@@ -1,10 +1,11 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './main-menu.module.scss';
 import ResetStatesAndRouteChangeBtn from '../ResetStatesAndRouteChangeBtn/reset-states-and-route-change-btn.component';
 import QuestionSettings from '../QuestionSettings/question-settings.component';
 
-
+import { useDispatch } from 'react-redux';
+import { setLoadingFalse } from '@/lib/features/topLoading/topLoadingSlice';
 
 type startQuizQueryType = {
     category: string,
@@ -12,6 +13,7 @@ type startQuizQueryType = {
 }
 export default function MainMenu(): JSX.Element {
 
+    const dispatch = useDispatch();
 
     const [startQuizQuery, setStartQuizQuery] = useState<startQuizQueryType>({
         category: 'category=27',
@@ -35,6 +37,10 @@ export default function MainMenu(): JSX.Element {
                     difficulty: DifficultyToSet
                 });
     }
+
+    useEffect(() => {
+        dispatch(setLoadingFalse());
+    }, [])
 
     return (
         <div className={`${styles.mainContainer} text-center`}>
