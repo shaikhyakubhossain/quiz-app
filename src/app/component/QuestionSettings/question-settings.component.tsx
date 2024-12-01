@@ -34,7 +34,7 @@ export default function QuestionSettings(props: propsType): JSX.Element {
 
     return (
         <div className={`${styles.mainContainer}`}>
-            <div className={`text-3xl`}>Select Category</div>
+            <div className={`text-3xl font-semibold`}>Select Category</div>
             <div className={`${styles.categoryContainer} flex justify-center flex-wrap `}>
                 {
                     categoriesList.map((item, index): JSX.Element => {
@@ -47,7 +47,7 @@ export default function QuestionSettings(props: propsType): JSX.Element {
                     })
                 }
             </div>
-            <div className={`text-3xl`}>Select Difficulty</div>
+            <div className={`text-3xl font-semibold`}>Select Difficulty</div>
             <div className={`${styles.difficultyContainer} flex flex-wrap justify-center overflow-hidden mx-auto mb-4`}>
                     <div><Btn customTW="text-sm" onClick={(e) => {
                         props.setDifficulty('difficulty=easy')
