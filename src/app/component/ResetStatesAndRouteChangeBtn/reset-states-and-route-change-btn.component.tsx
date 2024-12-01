@@ -29,9 +29,5 @@ export default function ResetStatesAndRouteChangeBtn(props: propsType): JSX.Elem
 
     }
 
-    return (
-        <>
-            <Btn onClick={() => props.url !== window.location.pathname && handleResetStatesAndRouteChangeOnBtnClick(props.url)} customTW={props.customTW} customBgColor={props.customBgColor} >{props.children}</Btn>
-        </>
-    )
+    return <Btn onClick={() => props.url !== window.location.pathname && handleResetStatesAndRouteChangeOnBtnClick(props.url)} customTW={props.customTW} customBgColor={props.customBgColor} >{props.children}</Btn>
 }

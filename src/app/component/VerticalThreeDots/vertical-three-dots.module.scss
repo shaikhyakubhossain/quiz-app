@@ -1,0 +1,8 @@
+@use '../../constants/CssUtils/color.scss';
+
+.mainContainer > div {
+    width: 6px;
+    height: 6px;
+    background: color.$yellowSecondary;
+    margin: 6px 0;
+}
