@@ -14,10 +14,8 @@ export default function RTKStoreProvider({
 
   const loading = () => {
     return (
-      <div className='text-center text-3xl py-56'>
-        <div>Restoring session...</div>
-        <div>Please wait while we load your data...</div>
-        <div>persisted state is being rehydrated.</div>
+      <div className='h-screen flex justify-center items-center'>
+        <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-r-2 border-gray-900'></div>
       </div>
     )
   }
